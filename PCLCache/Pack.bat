@@ -1,0 +1,1 @@
+NuGet.exe pack ..\build\PCLCache.nuspec -version 0.0.1 -symbols

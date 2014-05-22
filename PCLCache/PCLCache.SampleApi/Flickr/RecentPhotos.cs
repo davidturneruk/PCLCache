@@ -4,12 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PCLCache.SampleApp.Flickr
+namespace PCLCache.SampleApi.Flickr
 {
     //http://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=2d91c9ee34a385c43a4187f9c31f0f3a&format=json
      
     public class Photo
     {
+        private const string FlickUrl = "http://farm{0}.staticflickr.com/{1}/{2}_{3}_{4}.jpg";
+        private const string LargeSquareThumbnail = "q";
+        private const string LargeImage = "b";
+    
         public string id { get; set; }
         public string owner { get; set; }
         public string secret { get; set; }
@@ -19,11 +23,18 @@ namespace PCLCache.SampleApp.Flickr
         public int ispublic { get; set; }
         public int isfriend { get; set; }
         public int isfamily { get; set; }
+        public string ThumbnailPhotoUri
+        {
+            get
+            {
+                return string.Format(FlickUrl, farm, server, id, secret, LargeSquareThumbnail);
+            }
+        }
         public string PhotoUri
         {
             get
             {
-                return string.Format("http://farm{0}.staticflickr.com/{1}/{2}_{3}_b.jpg", farm, server, id, secret);
+                return string.Format(FlickUrl, farm, server, id, secret, LargeImage);
             }
         }
     }

@@ -332,6 +332,7 @@ namespace PCLCache.SampleApp.Common
         /// </summary>
         /// <param name="e">Event data that describes how this page was reached.  The Parameter
         /// property provides the group to be displayed.</param>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "e")]
         public void OnNavigatedFrom(NavigationEventArgs e)
         {
             var frameState = SuspensionManager.SessionStateForFrame(this.Frame);

@@ -1,4 +1,4 @@
-﻿namespace PortableCacheLibrary
+﻿namespace PCLCache
 {
     /// <summary>
     /// Possible loading states for the DataLoader

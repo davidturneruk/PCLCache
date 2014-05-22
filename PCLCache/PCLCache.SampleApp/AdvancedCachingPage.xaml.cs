@@ -1,23 +1,14 @@
-﻿using Newtonsoft.Json;
+﻿using PCLCache.SampleApi.Flickr;
 using PCLCache.SampleApp.Common;
-using PCLCache.SampleApp.Flickr;
-using PortableCacheLibrary;
+using PCLCache.SampleSharedCode;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Security.Cryptography;
 using Windows.Security.Cryptography.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Grouped Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234231
@@ -27,15 +18,13 @@ namespace PCLCache.SampleApp
     /// <summary>
     /// A page that displays a grouped collection of items.
     /// </summary>
-    public sealed partial class GroupedItemsPage : Page
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1001:TypesThatOwnDisposableFieldsShouldBeDisposable")]
+    public sealed partial class AdvancedCachingPage : Page, IDisposable
     {
         private NavigationHelper navigationHelper;
-        private ObservableDictionary defaultViewModel = new ObservableDictionary();
-
-        private IFlickrRecentPhotosLoader photoLoader = 
-            new SimpleFlickrRecentPhotosLoader();
-            //new LoadFromCacheThenRefreshLoader();
-        //TODO implement binding to DataLoader properties
+        private RecentPhotosViewModel viewModel = new RecentPhotosViewModel();
+        private LoadFromCacheThenRefreshFlickrRecentPhotos photoLoader = 
+            new LoadFromCacheThenRefreshFlickrRecentPhotos();
 
         /// <summary>
         /// NavigationHelper is used on each page to aid in navigation and 
@@ -46,20 +35,69 @@ namespace PCLCache.SampleApp
             get { return this.navigationHelper; }
         }
 
-        /// <summary>
-        /// This can be changed to a strongly typed view model.
-        /// </summary>
-        public ObservableDictionary DefaultViewModel
+        public RecentPhotosViewModel ViewModel
         {
-            get { return this.defaultViewModel; }
+            get { return this.viewModel; }
         }
 
-        public GroupedItemsPage()
+        public AdvancedCachingPage()
         {
+            this.photoLoader.FlickrKey = App.FlickrKey;
+            this.photoLoader.ComputeHash = (input) =>
+            {
+                var md5h = HashAlgorithmProvider.OpenAlgorithm("MD5").CreateHash();
+                var buff = CryptographicBuffer.ConvertStringToBinary(input, BinaryStringEncoding.Utf16BE);
+                md5h.Append(buff);
+                var buffHash = md5h.GetValueAndReset();
+                return CryptographicBuffer.EncodeToBase64String(buffHash);
+            };
+            this.photoLoader.ErrorCallback = async (exception) =>
+            {
+                var msg = new MessageDialog(exception.Message, "Error");
+                await msg.ShowAsync();
+            };
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
+
+            viewModel.Loader = photoLoader.Loader;
         }
+
+        #region IDisposable implementation
+
+        private bool disposed = false;
+
+        ~AdvancedCachingPage()
+        {
+            Dispose(false);
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        private void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    // Dispose managed resources.
+                    if (photoLoader != null)
+                    {
+                        photoLoader.Dispose();
+                        photoLoader = null;
+                    }
+                }
+                // Dispose unmanaged resources
+
+            }
+            disposed = true;
+        }
+
+        #endregion
 
         /// <summary>
         /// Populates the page with content passed during navigation.  Any saved state is also
@@ -80,15 +118,7 @@ namespace PCLCache.SampleApp
 
         private async Task LoadPhotos(bool forceRefresh = false)
         {
-            int cacheExpirationMinutes = 30;
-
-            await photoLoader.GetRecentPhotos(BaseFlickrRecentPhotosLoader.FlickrKey, cacheExpirationMinutes,
-                (result) => 
-                {
-                    //TODO rather than replace the viewmodel, add new items to it?
-                    if(result != null && result.photos != null)
-                        this.DefaultViewModel["Photos"] = result.photos.photo; 
-                }, forceRefresh: forceRefresh);
+            await photoLoader.GetRecentPhotos(ViewModel.UpdatePhotos, forceRefresh);
         }
 
         
@@ -97,6 +127,7 @@ namespace PCLCache.SampleApp
         /// </summary>
         /// <param name="sender">The Button used as a group header for the selected group.</param>
         /// <param name="e">Event data that describes how the click was initiated.</param>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "e")]
         void Header_Click(object sender, RoutedEventArgs e)
         {
             // Determine what group the Button instance represents
@@ -157,6 +188,11 @@ namespace PCLCache.SampleApp
         private async void BtnForceRefresh_Tapped(object sender, TappedRoutedEventArgs e)
         {
             await LoadPhotos(true);
+        }
+
+        private void BtnSimple_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(SimpleCachingPage));
         }
     }
 }

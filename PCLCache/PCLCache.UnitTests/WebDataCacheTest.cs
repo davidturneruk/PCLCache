@@ -1,4 +1,4 @@
-﻿namespace PortableCacheLibrary.UnitTests
+﻿namespace PCLCache.UnitTests
 {
     using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
     using Microsoft.VisualStudio.TestTools.UnitTesting;

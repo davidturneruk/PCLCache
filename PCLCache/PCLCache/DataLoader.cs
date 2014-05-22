@@ -1,4 +1,4 @@
-﻿namespace PortableCacheLibrary
+﻿namespace PCLCache
 {
     using System;
     using System.ComponentModel;
@@ -95,7 +95,7 @@
         public async Task<T> LoadAsync<T>(Func<Task<T>> loadingMethod, Action<T> resultCallback = null, Action<Exception> errorCallback = null)
         {
             //Set loading state
-            LoadingState = PortableCacheLibrary.LoadingState.Loading;
+            LoadingState = PCLCache.LoadingState.Loading;
 
             T result = default(T);
 
@@ -104,7 +104,7 @@
               result = await loadingMethod();
 
                 //Set finished state
-                LoadingState = PortableCacheLibrary.LoadingState.Finished;
+                LoadingState = PCLCache.LoadingState.Finished;
 
                 if (resultCallback != null)
                     resultCallback(result);
@@ -113,7 +113,7 @@
             catch (Exception e)
             {
                 //Set error state
-                LoadingState = PortableCacheLibrary.LoadingState.Error;
+                LoadingState = PCLCache.LoadingState.Error;
 
                 if (errorCallback != null)
                     errorCallback(e);
@@ -137,7 +137,7 @@
         public async Task LoadCacheThenRefreshAsync<T>(Func<Task<T>> cacheLoadingMethod, Func<Task<T>> refreshLoadingMethod, Action<T> resultCallback = null, Action<Exception> errorCallback = null)
         {
             //Set loading state
-            LoadingState = PortableCacheLibrary.LoadingState.Loading;
+            LoadingState = PCLCache.LoadingState.Loading;
 
             T cacheResult = default(T);
             T refreshResult = default(T);
@@ -155,13 +155,13 @@
                     resultCallback(refreshResult);
 
                 //Set finished state
-                LoadingState = PortableCacheLibrary.LoadingState.Finished;
+                LoadingState = PCLCache.LoadingState.Finished;
 
             }
             catch (Exception e)
             {
                 //Set error state
-                LoadingState = PortableCacheLibrary.LoadingState.Error;
+                LoadingState = PCLCache.LoadingState.Error;
 
                 if (errorCallback != null)
                     errorCallback(e);
@@ -184,7 +184,7 @@
         public async Task LoadFallbackToCacheAsync<T>(Func<Task<T>> refreshLoadingMethod, Func<Task<T>> cacheLoadingMethod, Action<T> resultCallback = null, Action<Exception> errorCallback = null)
         {
             //Set loading state
-            LoadingState = PortableCacheLibrary.LoadingState.Loading;
+            LoadingState = PCLCache.LoadingState.Loading;
             
             T refreshResult = default(T);
             T cacheResult = default(T);
@@ -198,7 +198,7 @@
                     resultCallback(refreshResult);
 
                 //Set finished state
-                LoadingState = PortableCacheLibrary.LoadingState.Finished;
+                LoadingState = PCLCache.LoadingState.Finished;
             }
             catch (Exception e)
             {
@@ -218,12 +218,12 @@
                         resultCallback(cacheResult);
                     
                     //Set finished state
-                    LoadingState = PortableCacheLibrary.LoadingState.Finished;
+                    LoadingState = PCLCache.LoadingState.Finished;
                 }
                 catch (Exception e)
                 {
                     //Set error state
-                    LoadingState = PortableCacheLibrary.LoadingState.Error;
+                    LoadingState = PCLCache.LoadingState.Error;
 
                     if (errorCallback != null)
                         errorCallback(e);

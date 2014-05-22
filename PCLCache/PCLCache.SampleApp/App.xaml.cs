@@ -26,6 +26,9 @@ namespace PCLCache.SampleApp
     /// </summary>
     sealed partial class App : Application
     {
+
+        public const string FlickrKey = "2d91c9ee34a385c43a4187f9c31f0f3a";
+
         /// <summary>
         /// Initializes the singleton Application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -91,7 +94,7 @@ namespace PCLCache.SampleApp
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                rootFrame.Navigate(typeof(GroupedItemsPage), e.Arguments);
+                rootFrame.Navigate(typeof(SimpleCachingPage), e.Arguments);
             }
             // Ensure the current window is active
             Window.Current.Activate();

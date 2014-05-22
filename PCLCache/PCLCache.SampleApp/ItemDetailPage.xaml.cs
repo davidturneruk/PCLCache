@@ -1,5 +1,5 @@
 ﻿using PCLCache.SampleApp.Common;
-using PCLCache.SampleApp.Flickr;
+using PCLCache.SampleApi.Flickr;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -63,9 +63,6 @@ namespace PCLCache.SampleApp
         /// session.  The state will be null the first time a page is visited.</param>
         private void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            // TODO: Create an appropriate data model for your problem domain to replace the sample data
-            //var id = (String)e.NavigationParameter;
-            //var photos = (List<Photo>)this.DefaultViewModel["Photos"];
             var photo = (Photo)e.NavigationParameter;
             this.DefaultViewModel["Photo"] = photo;
         }

@@ -9,7 +9,7 @@
 
         <!-- Application-specific resources -->
 
-        <x:String x:Key="AppName">PCLCache.SampleApp</x:String>
+        <x:String x:Key="AppName">Flickr Recent Photos</x:String>
 
     </Application.Resources>
 </Application>

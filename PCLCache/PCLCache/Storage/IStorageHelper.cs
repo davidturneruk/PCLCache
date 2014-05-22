@@ -1,4 +1,4 @@
-﻿namespace PortableCacheLibrary
+﻿namespace PCLCache
 {
     using System.Threading.Tasks;
 

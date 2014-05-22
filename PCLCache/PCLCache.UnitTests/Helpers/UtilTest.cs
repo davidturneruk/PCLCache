@@ -1,4 +1,4 @@
-﻿namespace PortableCacheLibrary.UnitTests
+﻿namespace PCLCache.UnitTests
 {
     using System;
     using System.Collections.Generic;

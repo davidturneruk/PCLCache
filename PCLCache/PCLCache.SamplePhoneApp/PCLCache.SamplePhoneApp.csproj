@@ -194,9 +194,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="PCLCache">
-      <HintPath>..\packages\PCLCache.0.23\lib\PCLCache.dll</HintPath>
-    </Reference>
     <Reference Include="PCLStorage, Version=0.9.6.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\PCLStorage.0.9.6\lib\wp8\PCLStorage.dll</HintPath>
@@ -226,6 +223,10 @@
     <ProjectReference Include="..\PCLCache.SampleSharedCode\PCLCache.SampleSharedCode.csproj">
       <Project>{C8635FF5-1D76-49DE-ADDA-C9D0A3D7A24E}</Project>
       <Name>PCLCache.SampleSharedCode</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCLCache\PCLCache.csproj">
+      <Project>{1730C0CF-0777-4A39-A95F-616B83C6E10A}</Project>
+      <Name>PCLCache</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />

@@ -60,9 +60,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="PCLCache">
-      <HintPath>..\packages\PCLCache.0.23\lib\PCLCache.dll</HintPath>
-    </Reference>
     <Reference Include="PCLStorage">
       <HintPath>..\packages\PCLStorage.0.9.6\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch\PCLStorage.dll</HintPath>
     </Reference>
@@ -82,6 +79,12 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PCLCache\PCLCache.csproj">
+      <Project>{1730c0cf-0777-4a39-a95f-616b83c6e10a}</Project>
+      <Name>PCLCache</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

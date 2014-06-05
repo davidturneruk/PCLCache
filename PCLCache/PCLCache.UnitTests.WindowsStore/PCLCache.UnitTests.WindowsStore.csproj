@@ -180,7 +180,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\PCLStorage.0.9.6\lib\portable-win8+wpa81\PCLStorage.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="PCLTesting">
+    <Reference Include="PCLTesting, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\PCLTesting.0.1.1\lib\win8\PCLTesting.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Extensions, Version=2.2.22.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">

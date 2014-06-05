@@ -177,10 +177,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\netcore45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="PCLCache, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\PCLCache.0.23\lib\PCLCache.dll</HintPath>
-    </Reference>
     <Reference Include="PCLStorage, Version=0.9.6.0, Culture=neutral, PublicKeyToken=286fe515a2c35b64, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\PCLStorage.0.9.6\lib\portable-win8+wpa81\PCLStorage.dll</HintPath>
@@ -206,6 +202,10 @@
     <ProjectReference Include="..\PCLCache.SampleSharedCode\PCLCache.SampleSharedCode.csproj">
       <Project>{c8635ff5-1d76-49de-adda-c9d0a3d7a24e}</Project>
       <Name>PCLCache.SampleSharedCode</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PCLCache\PCLCache.csproj">
+      <Project>{1730c0cf-0777-4a39-a95f-616b83c6e10a}</Project>
+      <Name>PCLCache</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

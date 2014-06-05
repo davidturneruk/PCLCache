@@ -1,6 +1,6 @@
 ﻿namespace PCLCache.SampleApi.Flickr
 {
-    using PortableCacheLibrary;
+    using PCLCache;
     using System;
 
     public interface ILoadFromCacheThenRefreshFlickrRecentPhotos : ICachedFlickrRecentPhotos

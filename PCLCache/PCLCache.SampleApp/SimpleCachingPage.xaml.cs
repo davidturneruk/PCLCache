@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using PCLCache.SampleApp.Common;
 using PCLCache.SampleApi.Flickr;
-using PortableCacheLibrary;
+using PCLCache;
 using System;
 using System.Collections.Generic;
 using System.IO;

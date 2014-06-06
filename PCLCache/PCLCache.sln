@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCLCache", "PCLCache\PCLCache.csproj", "{1730C0CF-0777-4A39-A95F-616B83C6E10A}"
 EndProject
@@ -24,8 +24,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{C9FCD0AB
 		Pack.bat = Pack.bat
 		build\PCLCache.nuspec = build\PCLCache.nuspec
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCLCache.UnitTests.WindowsPhone", "PCLCache.UnitTests.WindowsPhone\PCLCache.UnitTests.WindowsPhone.csproj", "{205D6608-2A7E-45A0-AE05-88EE20513A71}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCLCache.UnitTests.Desktop", "PCLCache.UnitTests.Desktop\PCLCache.UnitTests.Desktop.csproj", "{C2496AC2-7D20-4404-8008-1FC6C27ED85A}"
 EndProject
@@ -119,28 +117,6 @@ Global
 		{B10F058C-3F71-482D-86DA-DD65614B0275}.Release|x86.ActiveCfg = Release|x86
 		{B10F058C-3F71-482D-86DA-DD65614B0275}.Release|x86.Build.0 = Release|x86
 		{B10F058C-3F71-482D-86DA-DD65614B0275}.Release|x86.Deploy.0 = Release|x86
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Debug|ARM.ActiveCfg = Debug|ARM
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Debug|ARM.Build.0 = Debug|ARM
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Debug|ARM.Deploy.0 = Debug|ARM
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Debug|Mixed Platforms.Deploy.0 = Debug|x86
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Debug|x64.ActiveCfg = Debug|x86
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Debug|x86.ActiveCfg = Debug|x86
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Debug|x86.Build.0 = Debug|x86
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Debug|x86.Deploy.0 = Debug|x86
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Release|Any CPU.ActiveCfg = Release|x86
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Release|ARM.ActiveCfg = Release|ARM
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Release|ARM.Build.0 = Release|ARM
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Release|ARM.Deploy.0 = Release|ARM
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Release|Mixed Platforms.Build.0 = Release|x86
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Release|Mixed Platforms.Deploy.0 = Release|x86
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Release|x64.ActiveCfg = Release|x86
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Release|x86.ActiveCfg = Release|x86
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Release|x86.Build.0 = Release|x86
-		{205D6608-2A7E-45A0-AE05-88EE20513A71}.Release|x86.Deploy.0 = Release|x86
 		{C2496AC2-7D20-4404-8008-1FC6C27ED85A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C2496AC2-7D20-4404-8008-1FC6C27ED85A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2496AC2-7D20-4404-8008-1FC6C27ED85A}.Debug|ARM.ActiveCfg = Debug|Any CPU

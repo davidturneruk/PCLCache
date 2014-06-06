@@ -16,3 +16,4 @@ The source code is available on [GitHub](http://github.com/davidturneruk/pclcach
 <a href="http://davesteamcity.cloudapp.net/viewType.html?buildTypeId=PCLCache_ci&guest=1">
 <img src="http://davesteamcity.cloudapp.net/app/rest/builds/buildType:(id:PCLCache_ci)/statusIcon"/>
 </a>
+[![Build status](https://ci.appveyor.com/api/projects/status/xobfrfy878q4gqra)](https://ci.appveyor.com/project/davidturneruk/pclcache)
